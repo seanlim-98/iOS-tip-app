@@ -50,7 +50,7 @@
 		B79C9CBB2503DEEA00AAB0B7 /* TipCalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79C9CBF2503DEEA00AAB0B7 /* TipCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalcUITests.swift; sourceTree = "<group>"; };
 		B79C9CC12503DEEA00AAB0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B79C9CCD2503F40600AAB0B7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B79C9CCD2503F40600AAB0B7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,6 @@
 		B79C9C912503DEE900AAB0B7 = {
 			isa = PBXGroup;
 			children = (
-				B79C9CCD2503F40600AAB0B7 /* SettingsViewController.swift */,
 				B79C9C9C2503DEE900AAB0B7 /* TipCalc */,
 				B79C9CB32503DEEA00AAB0B7 /* TipCalcTests */,
 				B79C9CBE2503DEEA00AAB0B7 /* TipCalcUITests */,
@@ -102,6 +101,7 @@
 		B79C9C9C2503DEE900AAB0B7 /* TipCalc */ = {
 			isa = PBXGroup;
 			children = (
+				B79C9CCD2503F40600AAB0B7 /* SettingsViewController.swift */,
 				B79C9C9D2503DEE900AAB0B7 /* AppDelegate.swift */,
 				B79C9C9F2503DEE900AAB0B7 /* SceneDelegate.swift */,
 				B79C9CA12503DEE900AAB0B7 /* ViewController.swift */,

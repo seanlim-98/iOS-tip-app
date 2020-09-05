@@ -17,7 +17,6 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet var currencyOptions: [UIButton]!
     
-    // Deselects settings once others are chosen
     func resetButtonStates(tagNum: intmax_t, btnList: [UIButton]) {
         for button in btnList {
             if(button.tag != tagNum) {
@@ -26,23 +25,21 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    // Select tip percentage
     @IBAction func btnTapped(_ sender: UIButton) {
-        let selectedPercTagNum = sender.tag
-        resetButtonStates(tagNum: selectedPercTagNum, btnList: self.buttons) // update button state
+        let selectedTagNum = sender.tag
+        resetButtonStates(tagNum: selectedTagNum, btnList: self.buttons)
         if let button = sender as? UIButton {
             if !button.isSelected {
                 button.isSelected = true
             }
         }
-        defaults.set(selectedPercTagNum, forKey: "selected")
+        defaults.set(selectedTagNum, forKey: "selected")
         defaults.synchronize()
     }
     
-    // Select currency
     @IBAction func selectCurrency(_ sender: UIButton) {
         let selectedCurrTag = sender.tag
-        resetButtonStates(tagNum: selectedCurrTag, btnList: self.currencyOptions) // update button state
+        resetButtonStates(tagNum: selectedCurrTag, btnList: self.currencyOptions)
         if let button = sender as? UIButton {
             if !button.isSelected {
                 button.isSelected = true
@@ -52,18 +49,14 @@ class SettingsViewController: UIViewController {
         defaults.synchronize()
     }
     
-    // data persistence
     override func viewWillAppear(_ animated: Bool) {
         self.buttons[defaults.integer(forKey: "selected")].isSelected = true;
         self.darkModeSwitch.isOn = defaults.bool(forKey:"DarkModeOn")
-        overrideUserInterfaceStyle = defaults.bool(forKey: "DarkModeOn") == true ?  .dark : .light
         self.currencyOptions[defaults.integer(forKey: "currency")].isSelected = true;
     }
     
-    // Toggle dark mode switch
     @IBAction func darkModeToggle(_ sender: UISwitch) {
         sender.isOn == true ? defaults.set(true, forKey: "DarkModeOn") : defaults.set(false, forKey: "DarkModeOn")
-        overrideUserInterfaceStyle = defaults.bool(forKey: "DarkModeOn") == true ?  .dark : .light
         defaults.synchronize()
     }
     
