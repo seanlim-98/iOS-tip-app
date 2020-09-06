@@ -11,11 +11,11 @@ Time spent: 6 hours spent in total
 The following **required** functionality is complete:
 
 * [x] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [x] User can select between tip percentages by tapping different values on the segmented control and the tip value is updated accordingly
+* [x] User can select between tip percentages by tapping different values on the segmented control and the tip value is updated accordingly (I altered the segmented control and created a tip percentage option in the settings page)
 
 The following **optional** features are implemented:
 
-* [ ] UI animations
+* [x] UI animations
 * [ ] Remembering the bill amount across app restarts (if <10mins)
 * [x] Using locale-specific currency and currency thousands separators.
 * [ ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
@@ -24,14 +24,15 @@ The following **additional** features are implemented:
 
 - Allow users to manually change currencies and have their pre-entered amounts change weights dynamically
 - Implemented a dark mode option that can be toggled in the settings
+- UI animation dropdown menu for currency options
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented app:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/sUjP7XvjWN.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with [Recordit]
 
 ## Notes
 
