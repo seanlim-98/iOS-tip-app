@@ -15,12 +15,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     
     var old_curr = 0
+    var curr_sym = "$"
     let defaults = UserDefaults.standard;
+    
     let curr_weight = [1, 0.75, 0.84]
+    let currencies = ["$", "£", "€"]
+    
+    func findIndexOfCurrency() -> Int { // Finds the correct symbol based on locale
+        var iterator = 0
+        for curr in currencies {
+            if (Locale.current.currencySymbol! == curr) {
+                return iterator
+            } else {
+                iterator+=1
+                
+            }
+        }
+        return iterator
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Tip Calculator"
+        defaults.set(findIndexOfCurrency(), forKey:"currency")
     }
     
     // Currency conversion for existing text-field data
@@ -33,6 +50,7 @@ class ViewController: UIViewController {
     
     // Render changes after settings are altered
     override func viewWillAppear(_ animated: Bool) {
+        curr_sym = Locale.current.currencySymbol! // get current locale currency
         currency_conversion()
         overrideUserInterfaceStyle = defaults.bool(forKey: "DarkModeOn") == true ?  .dark : .light
     }
@@ -41,15 +59,16 @@ class ViewController: UIViewController {
     @IBAction func calculateTip(_ sender: Any) {
         let bill = Double(billAmountTextField.text!) ?? 0
         let tipPercentages = [0.15,0.18,0.20]
-        let currencies = ["$", "£", "€"]
         
         let tip = bill * tipPercentages[defaults.integer(forKey: "selected")]
         let total = bill + tip
         
-        let curr_symbol = currencies[defaults.integer(forKey: "currency")]
+        if (currencies[defaults.integer(forKey: "currency")] != curr_sym) {
+            curr_sym = currencies[defaults.integer(forKey: "currency")] // account for manual change of currency
+        }
         
-        tipPercentageLabel.text = curr_symbol + String(format:"%.2f", tip)
-        totalLabel.text = curr_symbol + String(format:"%.2f", total)
+        tipPercentageLabel.text = curr_sym + String(format:"%.2f", tip)
+        totalLabel.text = curr_sym + String(format:"%.2f", total)
         
         old_curr = defaults.integer(forKey: "currency")
     }
