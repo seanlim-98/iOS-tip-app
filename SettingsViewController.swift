@@ -14,6 +14,17 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet var buttons: [UIButton]!
+    @IBOutlet weak var pencilIcon: UIButton!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBAction func toggleCurrMenu(_ sender: Any) {
+        for button in currencyOptions {
+            UIView.transition(with: button, duration: 0.3,
+                options: .transitionCrossDissolve,
+                animations: {
+                    button.isHidden = !button.isHidden
+            })
+        }
+    }
     
     @IBOutlet var currencyOptions: [UIButton]!
     
@@ -49,6 +60,7 @@ class SettingsViewController: UIViewController {
             }
         }
         defaults.set(selectedCurrTag, forKey: "currency")
+        self.currencyLabel.text = currencyOptions[defaults.integer(forKey:"currency")].currentTitle
         defaults.synchronize()
     }
     
@@ -58,6 +70,7 @@ class SettingsViewController: UIViewController {
         self.darkModeSwitch.isOn = defaults.bool(forKey:"DarkModeOn")
         overrideUserInterfaceStyle = defaults.bool(forKey: "DarkModeOn") == true ?  .dark : .light
         self.currencyOptions[defaults.integer(forKey: "currency")].isSelected = true;
+        self.currencyLabel.text = currencyOptions[defaults.integer(forKey:"currency")].currentTitle
     }
     
     // Toggle dark mode switch
@@ -69,5 +82,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for button in currencyOptions {
+            button.isHidden = true
+        }
     }
 }

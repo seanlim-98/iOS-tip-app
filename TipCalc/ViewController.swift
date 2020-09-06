@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Tip Calculator"
         defaults.set(findIndexOfCurrency(), forKey:"currency")
+        self.becomeFirstResponder()
     }
     
     // Currency conversion for existing text-field data

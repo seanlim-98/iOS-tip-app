@@ -172,12 +172,31 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSH-Nd-9aO">
-                                <rect key="frame" x="255" y="380" width="97" height="38"/>
+                                <rect key="frame" x="256" y="379" width="97" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Euros"/>
                                 <connections>
                                     <action selector="selectCurrency:" destination="Bgx-E9-Rzl" eventType="touchUpInside" id="eQD-3U-CQO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaW-Si-OT8">
+                                <rect key="frame" x="208" y="336" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-gE-ose">
+                                <rect key="frame" x="326" y="340" width="25" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="pencil" catalog="system"/>
+                                <state key="selected">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleCurrMenu:" destination="Bgx-E9-Rzl" eventType="touchUpInside" id="bEf-0e-tet"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -186,7 +205,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="obC-l5-bpH"/>
                     <connections>
+                        <outlet property="currencyLabel" destination="RaW-Si-OT8" id="auQ-Ij-R0m"/>
                         <outlet property="darkModeSwitch" destination="Jwi-VE-UIi" id="dp4-xc-Lh1"/>
+                        <outlet property="pencilIcon" destination="o8z-gE-ose" id="bBG-rY-uup"/>
                         <outletCollection property="buttons" destination="DsI-FY-i4D" collectionClass="NSMutableArray" id="cZI-iF-kp4"/>
                         <outletCollection property="buttons" destination="vhz-6P-jdR" collectionClass="NSMutableArray" id="KgN-XJ-CFU"/>
                         <outletCollection property="buttons" destination="Lpx-ZK-ggg" collectionClass="NSMutableArray" id="49N-my-PLe"/>
@@ -197,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNG-sp-lHA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804.3478260869567" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1804.3478260869567" y="119.83695652173914"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9GT-fX-0CV">
@@ -218,4 +239,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
